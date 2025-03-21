@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<precice-configuration>
+  <solver-interface dimensions="3">
+    <data:vector name="CellForces"/>
+    <data:vector name="FluidVelocity"/>
+
+    <mesh name="BioDynamoMesh">
+      <use-data name="CellForces"/>
+      <use-data name="FluidVelocity"/>
+    </mesh>
+
+    <mesh name="FluidMesh">
+      <use-data name="CellForces"/>
+      <use-data name="FluidVelocity"/>
+    </mesh>
+
+    <participant name="BioDynaMo">
+      <use-mesh name="BioDynamoMesh" provide="yes"/>
+      <write-data name="CellForces" mesh="BioDynamoMesh"/>
+      <read-data name="FluidVelocity" mesh="BioDynamoMesh"/>
+    </participant>
+
+    <participant name="OpenFOAM">
+      <use-mesh name="FluidMesh" provide="yes"/>
+      <use-mesh name="BioDynamoMesh" from="BioDynaMo"/>
+      <read-data name="CellForces" mesh="BioDynamoMesh"/>
+      <write-data name="FluidVelocity" mesh="BioDynamoMesh"/>
+    </participant>
+
+    <m2n:sockets from="BioDynaMo" to="OpenFOAM" exchange-directory="."/>
+
+    <coupling-scheme:serial-explicit>
+      <participants first="BioDynaMo" second="OpenFOAM"/>
+      <time-window-size value="0.01"/>
+      <max-time value="10.0"/>
+      <exchange data="CellForces" mesh="BioDynamoMesh" from="BioDynaMo" to="OpenFOAM"/>
+      <exchange data="FluidVelocity" mesh="BioDynamoMesh" from="OpenFOAM" to="BioDynaMo"/>
+    </coupling-scheme:serial-explicit>
+  </solver-interface>
+</precice-configuration>

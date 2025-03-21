@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/ale/bdm-adapter/build",
+  "command": "/usr/bin/mpicxx -DBDMSYS=\\\"/home/ale/biodynamo-v1.05.124\\\" -DUSE_DICT -DUSE_MPI -DUSE_NUMA -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -I/home/ale/bdm-adapter/test -I/home/ale/biodynamo-v1.05.124/third_party/root/include -I/home/ale/bdm-adapter/build/omp -I/home/ale/biodynamo-v1.05.124/include -I/home/ale/biodynamo-v1.05.124/include/optim  -Wall -Wno-missing-braces -fPIC -fopenmp -m64 -O3 -DNDEBUG -o CMakeFiles/clang-tidy-header-helper.dir/clang_tidy_header_helper.cc.o -c /home/ale/bdm-adapter/build/clang_tidy_header_helper.cc",
+  "file": "/home/ale/bdm-adapter/build/clang_tidy_header_helper.cc",
+  "output": "CMakeFiles/clang-tidy-header-helper.dir/clang_tidy_header_helper.cc.o"
+},
+{
+  "directory": "/home/ale/bdm-adapter/build",
+  "command": "/usr/bin/mpicxx -DBDMSYS=\\\"/home/ale/biodynamo-v1.05.124\\\" -DUSE_DICT -DUSE_MPI -DUSE_NUMA -Dbdm_adapter_EXPORTS -I/usr/lib/x86_64-linux-gnu/openmpi/include -I/usr/lib/x86_64-linux-gnu/openmpi/include/openmpi -I/home/ale/biodynamo-v1.05.124/third_party/root/include -I/home/ale/bdm-adapter/build/omp -I/home/ale/biodynamo-v1.05.124/include -I/home/ale/biodynamo-v1.05.124/include/optim -I/home/ale/bdm-adapter/include -isystem /usr/include/precice  -Wall -Wno-missing-braces -fPIC -fopenmp -m64 -O3 -DNDEBUG -std=c++17 -fPIC -o CMakeFiles/bdm_adapter.dir/src/bdm_adapter.cpp.o -c /home/ale/bdm-adapter/src/bdm_adapter.cpp",
+  "file": "/home/ale/bdm-adapter/src/bdm_adapter.cpp",
+  "output": "CMakeFiles/bdm_adapter.dir/src/bdm_adapter.cpp.o"
+}
+]
